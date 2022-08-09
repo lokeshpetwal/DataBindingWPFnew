@@ -1,0 +1,23 @@
+﻿<Window x:Class="DataBindingWPFnew.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataBindingWPFnew"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel Margin="0,10,10,7">
+        <Label Content="Oneway:" FontSize="16"></Label>
+        <Slider IsSnapToTickEnabled="True" x:Name="MySlider" Minimum="0" Maximum="100"/>
+        <TextBox Name="MyTxt" Width="50" Text="{Binding ElementName=MySlider,Path=Value,Mode=OneWay}"/>
+        <Label Content="TwoWay:" FontSize="16"></Label>
+        <Slider Name="slider1" Minimum="0" Maximum="100" IsSnapToTickEnabled="True"/>
+        <TextBox Name="mytext" Width="100" Text="{Binding ElementName=slider1,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="OneWayToSource:" FontSize="16"></Label>
+        <Slider Name="slider2" Minimum="0" Maximum="100" IsSnapToTickEnabled="True"/>
+        <TextBox Name="mytex1t" Width="100" Text="{Binding ElementName=slider2,Path=Value,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="OneTime:" FontSize="16"></Label>
+        <Slider Name="slider3" Minimum="0" Maximum="100" IsSnapToTickEnabled="True"/>
+        <TextBox Name="mytex1t1" Width="100" Text="{Binding ElementName=slider3,Path=Value,Mode=OneTime,UpdateSourceTrigger=PropertyChanged}"/>
+    </StackPanel>
+</Window>
